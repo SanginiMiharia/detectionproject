@@ -20,6 +20,13 @@ pipeline {
                '''
            }
         }
+        stage('Trigger Deploy') {
+              steps {
+                  build job: 'AppDeploy', wait: false, parameters: [
+                      string(name: 'gad_IMAGE_URL', value: "854171615125.dkr.ecr.us-east-2.amazonaws.com/nishant_detection:latest")
+                  ]
+              }
+        }
     }
 }
 
