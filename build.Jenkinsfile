@@ -16,7 +16,7 @@ pipeline {
                     aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/d9o2f8i2
                     docker build -t sangini/gadrepo .
                     docker tag sangini/gadrepo:latest public.ecr.aws/d9o2f8i2/sangini/gadrepo:$BUILD_NUMBER
-                    docker push public.ecr.aws/d9o2f8i2/sangini/gadrepo:$BUILD_NUMBER
+                    docker push public.ecr.aws/d9o2f8i2/sangini/gadrepo:$BUILD_NUMBER 
                '''
            }
         }
