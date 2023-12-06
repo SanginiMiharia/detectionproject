@@ -23,7 +23,7 @@ pipeline {
         stage('Trigger Deploy') {
               steps {
                   build job: 'gadDeploy', wait: false, parameters: [
-                      string(name: 'gad_IMAGE_URL', value: "public.ecr.aws/d9o2f8i2/sangini/gadrepo:$BUILD_NUMBER")
+                      string(name: 'gad_IMAGE_URL', value: "928395062509.dkr.ecr.us-east-1.amazonaws.com/sangini/gadrepo:$BUILD_NUMBER ")
                   ]
               }
         }
