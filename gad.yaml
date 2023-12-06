@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: gad-app
-        image: 854171615125.dkr.ecr.us-east-2.amazonaws.com/nishant_detection:latest
+        image: 928395062509.dkr.ecr.us-east-1.amazonaws.com/sangini/gadrepo:6
         ports:
         - containerPort: 8082
 ---
