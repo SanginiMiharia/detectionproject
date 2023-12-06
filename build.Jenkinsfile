@@ -1,8 +1,8 @@
 pipeline {
     agent any
     environment {
-        AWS_REGION= 'us-east-2'
-        ECR_REGISTRY_URL='854171615125.dkr.ecr.us-east-2.amazonaws.com/nishant_detection'
+        AWS_REGION= 'us-east-1'
+        ECR_REGISTRY_URL='public.ecr.aws/d9o2f8i2/sangini/gadrepo'
     }
     stages {
         stage('Build') {
@@ -13,10 +13,10 @@ pipeline {
         stage('Building app') {
             steps {
                sh '''
-                    aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 854171615125.dkr.ecr.us-east-2.amazonaws.com
-                    docker build -t nishant_detection .
-                    docker tag nishant_detection:latest 854171615125.dkr.ecr.us-east-2.amazonaws.com/nishant_detection:latest
-                    docker push 854171615125.dkr.ecr.us-east-2.amazonaws.com/nishant_detection:latest
+                    aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/d9o2f8i2
+                    docker build -t sangini/gadrepo .
+                    docker tag sangini/gadrepo:latest public.ecr.aws/d9o2f8i2/sangini/gadrepo:latest
+                    docker push public.ecr.aws/d9o2f8i2/sangini/gadrepo:latest
                '''
            }
         }
@@ -29,4 +29,3 @@ pipeline {
         }
     }
 }
-
