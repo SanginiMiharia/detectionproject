@@ -6,7 +6,7 @@ pipeline {
         stage('Deploy') {
             steps {
                  sh '''
-                kubectl config set-context --current --namespace=sangini-ns
+                kubectl config set-context --minikube --namespace=sangini-ns
                 kubectl apply -f gad.yaml
                 '''
             }
