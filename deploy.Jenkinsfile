@@ -8,7 +8,7 @@ pipeline {
                  sh '''
                 aws eks --region eu-north-1 update-kubeconfig --name minorcluster
                 kubectl config set-context --current --namespace=sangini-ns
-                kubectl apply -f gad.yaml
+                kubectl apply -f gad.yaml 
                 '''
             }
         }
