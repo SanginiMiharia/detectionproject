@@ -10,13 +10,13 @@ pipeline {
         stage('Deploy') {
             steps {
                  sh '''
-                 def namespace = 'sangini-ns'
-                def context = 'minikube'
-                kubectl config set-context ${context} --namespace=${namespace} --cluster=$(kubectl config current-context)
-                
+                 aws eks --region eu-north-1 update-kubeconfig --name minorcluster
+                kubectl config set-context --current --namespace=sangini-ns
+                kubectl apply -f gad.yaml
                 
                 '''
             }
         }
     }
+}
 }
