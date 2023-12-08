@@ -7,6 +7,7 @@ pipeline {
             steps {
                  sh '''
                 aws eks --region eu-north-1 update-kubeconfig --name minorcluster
+                kubectl create namespace sangini-ns
                 kubectl config set-context --current --namespace=sangini-ns
                 kubectl apply -f gad.yaml 
                 '''

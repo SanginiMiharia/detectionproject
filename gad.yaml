@@ -14,9 +14,11 @@ spec:
     spec:
       containers:
       - name: gad-app
-        image: 860705619849.dkr.ecr.us-east-1.amazonaws.com/sangini/gadrepo:3
+        image: 860705619849.dkr.ecr.us-east-1.amazonaws.com/sangini/gadrepo:$BUILD_NUMBER
         ports:
         - containerPort: 8082
+        imagePullSecrets:
+      - name: ecr-registry-secret
 ---
 apiVersion: v1
 kind: Service
@@ -28,3 +30,4 @@ spec:
   ports:
     - port: 8082
       targetPort: 8082
+
