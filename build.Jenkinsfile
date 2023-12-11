@@ -17,6 +17,7 @@ pipeline {
                     docker build -t sangini/gadrepo .
                     docker tag sangini/gadrepo:latest 187851048168.dkr.ecr.eu-north-1.amazonaws.com/sangini/gadrepo:$BUILD_NUMBER
                     docker push 187851048168.dkr.ecr.eu-north-1.amazonaws.com/sangini/gadrepo:$BUILD_NUMBER 
+                    
                '''
            }
         }
